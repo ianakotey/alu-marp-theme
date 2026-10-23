@@ -714,9 +714,12 @@ section:where(.split) > blockquote {
   right: 0;
   bottom: 34px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
   width: 48%;
   margin: 0;
-  padding: 30px 26px 24px 14px;
+  padding: 34px 26px 34px 14px;
   background: var(--alu-navy);
   border: 0;
   color: #fff;
