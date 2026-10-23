@@ -216,7 +216,7 @@ pre {
   border-radius: 3px;
   font-size: 0.72em;
   line-height: 1.55;
-  margin: 0.7em 0;
+  margin: 0.7em auto;
   overflow: visible;
   contain: paint;
   width: fit-content;
