@@ -56,6 +56,27 @@ theme: alu
 Title convention: `# **Label:** rest of the title` renders the label in navy at
 weight 800 and the remainder in brand blue.
 
+## Editable PowerPoint
+
+`--pptx-editable` prints the deck to PDF and re-imports it with LibreOffice,
+which cannot reproduce CSS gradients, tiled patterns or ligatures, and widens
+multi-line headings until they overlap. Use the flat variant for that path:
+
+```bash
+marp deck.md --theme-set . --theme ./alu-editable.css --pptx-editable -o deck.pptx
+```
+
+It keeps solid surfaces, the band, the lockup, the red slash, tables and code
+panels, and switches to system fonts with slightly smaller split titles. The
+openers lose their diagonal artwork. Requires LibreOffice (`soffice`) on `PATH`.
+
+For pixel-exact output use the regular theme and the raster exporter instead:
+
+```bash
+marp deck.md --theme-set . --pptx -o deck.pptx      # one image per slide
+marp deck.md --theme-set . --pdf -o deck.pdf
+```
+
 ## Attribution
 
 Theme CSS written for ALU. Documents under `reference/` are MIT-licensed

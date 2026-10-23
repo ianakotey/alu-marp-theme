@@ -1,0 +1,60 @@
+/*!
+ * ALU — flat variant for editable PowerPoint export
+ *
+ * Editable PPTX is produced by printing to PDF and re-importing that PDF in
+ * LibreOffice. That importer drops fills beneath CSS gradients, cannot tile
+ * patterns, and loses ligature glyphs, so this variant keeps only solid
+ * surfaces, solid shapes and images.
+ *
+ * Usage:
+ *   marp deck.md --theme-set alu-theme-repo --theme alu-theme-repo/alu-editable.css --pptx-editable
+ *
+ * @theme alu-editable
+ */
+
+@import 'alu';
+
+section {
+  font-variant-ligatures: none;
+}
+
+/* Solid navy openers: no gradients, no hex texture. */
+section:where(.title),
+section:where(.banner) {
+  background-image: var(--alu-lockup);
+  background-color: var(--alu-navy);
+}
+
+section:where(.title)::before,
+section:where(.banner)::before {
+  content: none;
+}
+
+/* A heading that mixes weights/colours is emitted as separate PDF text runs,
+   which LibreOffice re-flows on top of each other. Flatten it to one run. */
+h1,
+h1 strong {
+  color: var(--alu-navy);
+  font-weight: 700;
+}
+
+/* LibreOffice substitutes missing webfonts with a wider face, which makes
+   each imported line wrap inside its own box and overlap. Use fonts that are
+   metric-compatible with what the import sees. */
+section {
+  font-family: 'Liberation Sans', Arial, 'Helvetica Neue', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+}
+
+code, pre {
+  font-family: 'Liberation Mono', Consolas, monospace;
+}
+
+/* Imported text boxes add ~0.1in insets; a slightly smaller heading leaves
+   enough slack that each line fits its own box instead of wrapping. */
+section:where(.split) > h1 {
+  font-size: 1.72em;
+}
