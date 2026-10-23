@@ -234,8 +234,10 @@ pre code {
 }
 
 pre .line.highlighted {
-  border-image: conic-gradient(var(--marp-shiki-line-highlight) 0 0) fill 0/ /0
-    10000vw;
+  border-image-source: conic-gradient(var(--marp-shiki-line-highlight) 0 0);
+  border-image-slice: 0 fill;
+  border-image-width: 1;
+  border-image-outset: 0 10000vw;
 }
 
 /* Marp Core v4 colors highlight.js classes itself; feed them from the
