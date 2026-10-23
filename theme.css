@@ -53,3 +53,234 @@ section {
   background-size: 142px auto, 100% 100%;
   overflow-wrap: break-word;
 }
+
+/* ------------------------------------------------------------------ *
+ * Typography
+ * ------------------------------------------------------------------ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--alu-navy);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.45em;
+}
+
+h1 {
+  font-size: 1.95em;
+  font-weight: 600;
+  color: var(--alu-blue);
+  letter-spacing: -0.01em;
+}
+
+/* Two-tone title convention: **label** stays navy/800, the rest is blue */
+h1 strong {
+  color: var(--alu-navy);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h3 {
+  font-size: 1.08em;
+}
+
+p {
+  margin: 0.45em 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* Red emphasis is the template's accent convention: *text* */
+em {
+  color: var(--alu-red);
+  font-weight: 700;
+}
+
+a {
+  color: var(--alu-teal);
+  text-decoration: underline;
+}
+
+ul,
+ol {
+  margin: 0.45em 0;
+  padding-left: 1.15em;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+li::marker {
+  color: var(--alu-navy);
+}
+
+ul > li::marker {
+  content: '\2794  ';
+  font-size: 0.84em;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  list-style-type: disc;
+}
+
+ul ul > li::marker,
+ol ul > li::marker {
+  content: normal;
+  font-size: 0.72em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--alu-rule);
+  margin: 1em 0;
+}
+
+/* ------------------------------------------------------------------ *
+ * Title chrome — red slash + hairline rule on normal title pages
+ * ------------------------------------------------------------------ */
+section:not(:where(.title, .banner, .statement, .quote, .objectives)) > h1 {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+section:not(:where(.title, .banner, .statement, .quote, .objectives))
+  > h1::before {
+  content: '';
+  position: absolute;
+  left: -86px;
+  top: 0.04em;
+  width: 30px;
+  height: 1.3em;
+  background: var(--alu-red);
+  transform: skewX(20deg);
+}
+
+/* ------------------------------------------------------------------ *
+ * Tables
+ * ------------------------------------------------------------------ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82em;
+  margin: 0.8em 0;
+}
+
+thead th {
+  background: var(--alu-navy);
+  color: #fff;
+  text-align: left;
+  padding: 0.5em 0.7em;
+  font-weight: 600;
+}
+
+tbody td,
+tbody th {
+  padding: 0.5em 0.7em;
+  border-bottom: 1px solid var(--alu-rule);
+  text-align: left;
+  font-weight: 500;
+}
+
+tbody tr:nth-child(even) {
+  background: #f4f6fa;
+}
+
+/* ------------------------------------------------------------------ *
+ * Code — dark panel (matches the reference decks)
+ * ------------------------------------------------------------------ */
+code {
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+}
+
+pre {
+  background: var(--marp-shiki-background);
+  color: var(--marp-shiki-foreground);
+  padding: 0.8em 1em;
+  border-radius: 3px;
+  font-size: 0.72em;
+  line-height: 1.55;
+  margin: 0.7em 0;
+  overflow: visible;
+  contain: paint;
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  font-size: 1em;
+  padding: 0;
+}
+
+:not(pre) > code {
+  background: var(--alu-surface);
+  color: var(--alu-navy);
+  padding: 0.1em 0.34em;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+pre .line.highlighted {
+  border-image: conic-gradient(var(--marp-shiki-line-highlight) 0 0) fill 0/ /0
+    10000vw;
+}
+
+/* Marp Core v4 colors highlight.js classes itself; feed them from the
+   same token variables so both majors match. */
+section
+  :where(
+    .hljs-keyword,
+    .hljs-doctag,
+    .hljs-type,
+    .hljs-selector-tag,
+    .hljs-template-tag,
+    .hljs-template-variable,
+    .hljs-name,
+    .hljs-selector-pseudo
+  ) {
+  color: var(--marp-shiki-token-keyword);
+}
+
+section :where(.hljs-title, .hljs-title.function_, .hljs-built_in) {
+  color: var(--marp-shiki-token-function);
+}
+
+section :where(.hljs-string, .hljs-regexp, .hljs-meta .hljs-string) {
+  color: var(--marp-shiki-token-string);
+}
+
+section :where(.hljs-comment, .hljs-quote) {
+  color: var(--marp-shiki-token-comment);
+}
+
+section
+  :where(
+    .hljs-number,
+    .hljs-literal,
+    .hljs-variable,
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-symbol,
+    .hljs-bullet,
+    .hljs-meta,
+    .hljs-operator
+  ) {
+  color: var(--marp-shiki-token-constant);
+}
+
