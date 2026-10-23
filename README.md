@@ -12,8 +12,11 @@ hexagon band chrome, split layouts and a vocabulary of page classes).
 | Path | What it is |
 | --- | --- |
 | `theme.css` | The theme: palette, typography, chrome and page classes. |
-| `template.md` | Page-class menu — one example per class. Copy what you need. |
+| `template.md` | Page-class menu. One example per class; copy what you need. |
 | `media.png` | Placeholder image used by the template's two-column example. |
+| `docs/classes.md` | One section per page class, with markup. |
+| `docs/quirks.md` | Behaviour that differs from a plain CSS theme. |
+| `.claude/skills/alu-marp-theme/SKILL.md` | Instructions for an agent working in this repo. |
 | `reference/` | Vendored official Marp/Marpit documents (MIT licensed). |
 
 ## Palette
@@ -53,6 +56,9 @@ theme: alu
 `code`, `code-notes`, `statement`, `activity`, `quote`, `references`, plus the
 `display` modifier for oversized titles.
 
+Markup for each class is in [`docs/classes.md`](docs/classes.md). Behaviour that
+differs from a plain CSS theme is in [`docs/quirks.md`](docs/quirks.md).
+
 Title convention: `# **Label:** rest of the title` renders the label in navy at
 weight 800 and the remainder in brand blue.
 
@@ -69,7 +75,7 @@ marp deck.md --theme-set . --theme ./alu-editable.css --pptx-editable -o deck.pp
 It keeps solid surfaces, the band, the lockup, the red slash, tables and code
 panels, and switches to system fonts with slightly smaller split titles. The
 openers keep their artwork as baked 16:9 backdrops (1920×1080), so the theme
-assumes 16:9 for them — the 4:3 preset would stretch the image. Requires
+assumes 16:9 for them. The 4:3 preset would stretch the image. Requires
 LibreOffice (`soffice`) on `PATH`.
 
 For pixel-exact output use the regular theme and the raster exporter instead:

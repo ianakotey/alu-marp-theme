@@ -4,7 +4,7 @@ size: 16:9
 ---
 
 <!--
-  ALU theme — page-class menu.
+  ALU theme. Page-class menu.
   Copy the blocks you need and delete the rest.
   Classes are applied with the spot directive `_class` so an example never
   leaks onto the pages that follow.
