@@ -68,7 +68,9 @@ marp deck.md --theme-set . --theme ./alu-editable.css --pptx-editable -o deck.pp
 
 It keeps solid surfaces, the band, the lockup, the red slash, tables and code
 panels, and switches to system fonts with slightly smaller split titles. The
-openers lose their diagonal artwork. Requires LibreOffice (`soffice`) on `PATH`.
+openers keep their artwork as baked 16:9 backdrops (1920×1080), so the theme
+assumes 16:9 for them — the 4:3 preset would stretch the image. Requires
+LibreOffice (`soffice`) on `PATH`.
 
 For pixel-exact output use the regular theme and the raster exporter instead:
 
